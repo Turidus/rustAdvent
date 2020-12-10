@@ -1,5 +1,5 @@
 [package]
-name = "rustAdvent"
+name = "rust_advent"
 version = "0.1.0"
 authors = ["LSF"]
 edition = "2018"
