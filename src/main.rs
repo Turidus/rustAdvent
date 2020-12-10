@@ -43,7 +43,9 @@ fn main() {
             if puzzle == 1 {
                 day_one::puzzle_one::run(&*path)
             }
-            else {  }
+            else {
+                day_one::puzzle_two::run(&*path)
+            }
         }
         _ => ()
     }
