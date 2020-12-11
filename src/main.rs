@@ -1,4 +1,5 @@
 mod day_one;
+mod day_two;
 
 use std::io;
 use std::env;
@@ -45,6 +46,14 @@ fn main() {
             }
             else {
                 day_one::puzzle_two::run(&*path)
+            }
+        }
+        2 => {
+            if puzzle == 1 {
+                day_two::puzzle_one::run(&*path)
+            }
+            else {
+                day_two::puzzle_two::run(&*path)
             }
         }
         _ => ()

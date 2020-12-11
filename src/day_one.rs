@@ -35,8 +35,6 @@ pub mod puzzle_one {
         }
         smaller.sort();
         bigger.sort();
-        println!("len small {:?}",smaller);
-        println!("len big {:?}", bigger);
 
 
 
@@ -149,15 +147,5 @@ pub mod puzzle_two {
 
         println!("The numbers were {:?}", result);
         println!("The answer is {}", result.get());
-    }
-}
-
-pub mod puzzle_ups {
-    use std::fs;
-    use std::path::Path;
-    pub fn run(path: &Path){
-        let input = fs::read_to_string(path)
-            .expect("Reading the file was not possible.");
-
     }
 }
