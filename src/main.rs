@@ -1,5 +1,7 @@
 mod day_one;
 mod day_two;
+mod day_three;
+mod day_four;
 
 use std::io;
 use std::env;
@@ -56,6 +58,14 @@ fn main() {
                 day_two::puzzle_two::run(&*path)
             }
         }
-        _ => ()
+        3 => {
+            if puzzle == 1 {
+                day_three::puzzle_one::run(&*path)
+            }
+            else {
+                day_three::puzzle_two::run(&*path)
+            }
+        }
+        _ => {panic!(usage)}
     }
 }
