@@ -38,7 +38,7 @@ pub mod puzzle_one {
 
 
 
-        if(equal.len() == 2){
+        if equal.len() == 2 {
             result.smaller = 1010;
             result.bigger = 1010;
         }
@@ -116,8 +116,8 @@ pub mod puzzle_two {
 
         let mut sums: Vec<Sum> = Vec::new();
 
-        for i in (0 .. smaller.len()) {
-            for j in (0 .. smaller.len()) {
+        for i in 0 .. smaller.len() {
+            for j in 0 .. smaller.len() {
                 if i == j { continue; }
                 let s1 = smaller.get(i).unwrap_or(&1);
                 let s2 = smaller.get(j).unwrap_or(&1);
