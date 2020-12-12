@@ -90,13 +90,3 @@ pub mod puzzle_two {
         println!("The answer is {}", count)
     }
 }
-
-pub mod puzzle_ups {
-    use std::fs;
-    use std::path::Path;
-    pub fn run(path: &Path){
-        let input = fs::read_to_string(path)
-            .expect("Reading the file was not possible.");
-
-    }
-}

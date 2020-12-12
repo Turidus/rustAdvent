@@ -1,7 +1,5 @@
 mod rexes {
-    use std::num::ParseIntError;
     pub use regex::Regex;
-    use regex::Captures;
 
     pub struct Rexes {
         pub blank: Regex,
@@ -45,26 +43,26 @@ mod rexes {
 
     pub fn valid(passport: &str) -> bool {
         lazy_static!{
-            static ref re: Rexes = get_simple_rexes();
+            static ref RE: Rexes = get_simple_rexes();
         }
 
-        re.byr.is_match(&passport)
-            && re.iyr.is_match(&passport)
-            && re.eyr.is_match(&passport)
-            && re.hcl.is_match(&passport)
-            && re.hgt.is_match(&passport)
-            && re.ecl.is_match(&passport)
-            && re.pid.is_match(&passport)
+        RE.byr.is_match(&passport)
+            && RE.iyr.is_match(&passport)
+            && RE.eyr.is_match(&passport)
+            && RE.hcl.is_match(&passport)
+            && RE.hgt.is_match(&passport)
+            && RE.ecl.is_match(&passport)
+            && RE.pid.is_match(&passport)
     }
 
     pub fn valid_data(passport: &str) -> bool {
         lazy_static! {
-            static ref re: Rexes = get_complex_rexes();
+            static ref RE: Rexes = get_complex_rexes();
         }
 
         if !valid(passport) {return false}
         //byr
-        let cap = match re.byr.captures(passport){
+        let cap = match RE.byr.captures(passport){
             None => {return false}
             Some(c) => {c}
         };
@@ -76,7 +74,7 @@ mod rexes {
             Err(_) => {return false}
         };
         //iyr
-        let cap = match re.iyr.captures(passport){
+        let cap = match RE.iyr.captures(passport){
             None => {return false}
             Some(c) => {c}
         };
@@ -87,7 +85,7 @@ mod rexes {
             Err(_) => {return false}
         };
         //eyr
-        let cap = match re.eyr.captures(passport){
+        let cap = match RE.eyr.captures(passport){
             None => {return false}
             Some(c) => {c}
         };
@@ -98,7 +96,7 @@ mod rexes {
             Err(_) => {return false}
         };
         //hgt
-        let cap = match re.hgt.captures(passport){
+        let cap = match RE.hgt.captures(passport){
             None => {return false}
             Some(c) => {c}
         };
@@ -113,9 +111,9 @@ mod rexes {
             }
         };
 
-        re.hcl.is_match(passport)
-            && re.ecl.is_match(passport)
-            && re.pid.is_match(passport)
+        RE.hcl.is_match(passport)
+            && RE.ecl.is_match(passport)
+            && RE.pid.is_match(passport)
     }
 }
 
@@ -177,16 +175,5 @@ pub mod puzzle_two {
             if valid_data(&passport) {count += 1;}
         }
         println!("Answer is {}", count)
-    }
-}
-
-
-pub mod puzzle_ups {
-    use std::fs;
-    use std::path::Path;
-    pub fn run(path: &Path){
-        let input = fs::read_to_string(path)
-            .expect("Reading the file was not possible.");
-
     }
 }

@@ -6,7 +6,7 @@ pub mod puzzle_one {
     pub fn run(path: &Path){
         let input = fs::read_to_string(path)
             .expect("Reading the file was not possible.");
-        let mut lines = input.lines();
+        let lines = input.lines();
 
         let mut input: Vec<Vec<char>> = Vec::new();
 
@@ -42,7 +42,7 @@ pub mod puzzle_two {
     pub fn run(path: &Path){
         let input = fs::read_to_string(path)
             .expect("Reading the file was not possible.");
-        let mut lines = input.lines();
+        let lines = input.lines();
 
         let mut input: Vec<Vec<char>> = Vec::new();
 
