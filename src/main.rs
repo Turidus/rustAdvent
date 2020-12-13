@@ -4,6 +4,7 @@ mod day_three;
 mod day_four;
 mod day_five;
 mod day_six;
+mod day_seven;
 
 #[macro_use] extern crate lazy_static;
 use std::io;
@@ -86,6 +87,14 @@ fn main() {
             }
             else {
                 day_six::puzzle_two::run(&*path)
+            }
+        }
+        7 => {
+            if puzzle == 1 {
+                day_seven::puzzle_one::run(&*path)
+            }
+            else {
+                day_seven::puzzle_two::run(&*path)
             }
         }
         _ => {panic!(usage)}
