@@ -6,6 +6,7 @@ mod day_five;
 mod day_six;
 mod day_seven;
 mod day_eight;
+mod day_nine;
 
 #[macro_use] extern crate lazy_static;
 use std::io;
@@ -16,24 +17,15 @@ fn main() {
     let usage = String::from("Usage: rust_advent[.exe] day:int puzzle:int fileName:String. Example: rust_advent.exe 1 2 1-2");
     println!("{:?}", args);
 
-    let day: u8 = match args.get(1) {
-        None => {panic!(usage)}
-        Some(s) => {s.parse().expect(&*usage)}
-    };
+    let day: u8 = args.get(1).expect(&*usage).parse().expect(&*usage);
 
     if day < 1 || day > 24 {panic!(usage)}
 
-    let puzzle: u8 = match args.get(2) {
-        None => {panic!(usage)}
-        Some(s) => {s.parse().expect(&*usage)}
-    };
+    let puzzle: u8 = args.get(2).expect(&*usage).parse().expect(&*usage);
 
     if puzzle < 1  || puzzle > 2 {panic!(usage)}
 
-    let f_name = match args.get(3) {
-        None => {panic!(usage)}
-        Some(s) => {s}
-    };
+    let f_name = args.get(3).expect(&*usage);
 
     let base = env::current_dir().unwrap();
     let path= match base.parent(){
@@ -104,6 +96,14 @@ fn main() {
             }
             else {
                 day_eight::puzzle_two::run(&*path)
+            }
+        }
+        9 => {
+            if puzzle == 1 {
+                day_nine::puzzle_one::run(&*path)
+            }
+            else {
+                day_nine::puzzle_two::run(&*path)
             }
         }
         _ => {panic!(usage)}
