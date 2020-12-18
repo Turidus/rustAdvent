@@ -22,7 +22,7 @@ pub mod puzzle_one {
         type Err = Error;
 
         fn from_str(s: &str) -> Result<Self, Self::Err> {
-            let mut op: Operation;
+            let op: Operation;
             let e = Error::new(ErrorKind::InvalidInput, "Could not parse this line");
             if s == "jmp" {
                 op = Operation::Jmp;
@@ -121,7 +121,7 @@ pub mod puzzle_two {
         type Err = Error;
 
         fn from_str(s: &str) -> Result<Self, Self::Err> {
-            let mut op: Operation;
+            let op: Operation;
             let e = Error::new(ErrorKind::InvalidInput, "Could not parse this line");
             if s == "jmp" {
                 op = Operation::Jmp;

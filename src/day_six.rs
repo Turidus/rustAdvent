@@ -70,7 +70,7 @@ pub mod puzzle_two {
     fn get_count(group: &String, group_size: u32) -> usize{
         let mut map: HashMap<char, u32> = HashMap::new();
         for s in group.chars() {
-            if(map.contains_key(&s)){
+            if map.contains_key(&s) {
                 //save to unwrap, existence of key is already certain.
                 let value = *map.get(&s).unwrap();
                 map.insert(s, value + 1);

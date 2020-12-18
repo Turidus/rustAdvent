@@ -51,16 +51,16 @@ pub mod puzzle_one {
     fn get_rules(second_part: &str) -> Vec<Option<Rule>> {
 
         lazy_static! {
-            static ref re_2: Regex = Regex::new(r"(\d)\s([a-z]+\s[a-z]+)").unwrap();
-            static ref re_3: Regex = Regex::new(r"no other bags").unwrap();
+            static ref RE_2: Regex = Regex::new(r"(\d)\s([a-z]+\s[a-z]+)").unwrap();
+            static ref RE_3: Regex = Regex::new(r"no other bags").unwrap();
         }
-        //let re_2: Regex = Regex::new(r"(\d)\s([a-z]+\s[a-z]+)").unwrap();
-        //let re_3: Regex = Regex::new(r"no other bags").unwrap();
-        if re_3.is_match(second_part) {
+        //let RE_2: Regex = Regex::new(r"(\d)\s([a-z]+\s[a-z]+)").unwrap();
+        //let RE_3: Regex = Regex::new(r"no other bags").unwrap();
+        if RE_3.is_match(second_part) {
             return vec![None]
         }
         let mut vec: Vec<Option<Rule>> = Vec::new();
-        for cap in re_2.captures_iter(second_part){
+        for cap in RE_2.captures_iter(second_part){
             //we can use unwrap here. A non match should be a panik!
             let quantity: usize = cap.get(1).unwrap().as_str().parse().unwrap();
             let name: String = String::from(cap.get(2).unwrap().as_str());
@@ -149,16 +149,16 @@ pub mod puzzle_two {
     fn get_rules(second_part: &str) -> Vec<Option<Rule>> {
 
         lazy_static! {
-            static ref re_2: Regex = Regex::new(r"(\d)\s([a-z]+\s[a-z]+)").unwrap();
-            static ref re_3: Regex = Regex::new(r"no other bags").unwrap();
+            static ref RE_2: Regex = Regex::new(r"(\d)\s([a-z]+\s[a-z]+)").unwrap();
+            static ref RE_3: Regex = Regex::new(r"no other bags").unwrap();
         }
-        //let re_2: Regex = Regex::new(r"(\d)\s([a-z]+\s[a-z]+)").unwrap();
-        //let re_3: Regex = Regex::new(r"no other bags").unwrap();
-        if re_3.is_match(second_part) {
+        //let RE_2: Regex = Regex::new(r"(\d)\s([a-z]+\s[a-z]+)").unwrap();
+        //let RE_3: Regex = Regex::new(r"no other bags").unwrap();
+        if RE_3.is_match(second_part) {
             return vec![None]
         }
         let mut vec: Vec<Option<Rule>> = Vec::new();
-        for cap in re_2.captures_iter(second_part){
+        for cap in RE_2.captures_iter(second_part){
             //we can use unwrap here. A non match should be a panik!
             let quantity: usize = cap.get(1).unwrap().as_str().parse().unwrap();
             let name: String = String::from(cap.get(2).unwrap().as_str());

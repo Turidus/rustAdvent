@@ -66,7 +66,7 @@ pub mod puzzle_two {
             .expect("Reading the file was not possible.");
 
         let num: usize = 85848519;
-        let mut answer: usize = 0;
+        let answer: usize;
         let mut main_list: Vec<usize> = Vec::new();
 
         for line in input.lines() {
@@ -82,8 +82,8 @@ pub mod puzzle_two {
             for j in i..main_list.len() {
                 acc += main_list[j];
 
-                if (acc > num) {break}
-                else if (acc == num) {
+                if acc > num {break}
+                else if acc == num {
                     found = true;
                     slice_borders = (i,j);
                     break
@@ -91,7 +91,7 @@ pub mod puzzle_two {
             }
         }
 
-        let mut slice = &mut main_list[slice_borders.0 .. slice_borders.1 + 1];
+        let slice = &mut main_list[slice_borders.0 .. slice_borders.1 + 1];
         slice.sort();
 
         answer = slice.first().unwrap() + slice.last().unwrap();
